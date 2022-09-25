@@ -57,9 +57,6 @@ namespace myEditorScripts
 
 			foreach( Component component in objects )
 			{
-					//Debug.Log(component.GetType().BaseType.DeclaringType.ToString());
-					Debug.Log("> " + component.GetType().BaseType.BaseType.ToString());
-					Debug.Log(component.GetType().BaseType.ToString() + "| "+ component.GetType().ToString());
 				if(IsAuthorizedType(component) &&  IsInsideProject(component.GetType().Name))
 				{
 					if( !sets.ContainsKey( component.GetType() ))
@@ -80,9 +77,6 @@ namespace myEditorScripts
 		}
 		bool IsAuthorizedType(Component c) {
 			bool authorized = false;
-			Debug.Log(">" + c.GetType().ToString());
-			Debug.Log(c.GetType().BaseType.ToString());
-			Debug.Log("" + c.GetType().BaseType.BaseType.ToString());
 			if (c.GetType().BaseType.ToString().Equals("UnityEngine.MonoBehaviour") ||
 				c.GetType().BaseType.ToString().Equals("Mirror.NetworkBehaviour") ||
 				c.GetType().BaseType.ToString().Equals("EntitySystem") ||
